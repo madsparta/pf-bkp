@@ -1,18 +1,16 @@
 # pf_bkp.sh
 
-Backup massivo de firewalls pfSense via SSH.
+Perform backup configuration of several pfSense firewall with SSH access.
 
-Esse script assume que já exista uma chave RSA configurada nos dispositivos remotos.
+Script [pf_bkp.sh](pf_bkp.sh) require a list as argument, list need have firewall address and SSH port.
 
-O script [pf_bkp.sh](pf_bkp.sh) requer um arquivo com a lista de firewalls, contendo um IP ou FQDN e porta SSH por linha, conforme o seguinte formato.
+> firewalladdress.com:SSHport
 
-> myfirewalladdress.local:mySSHport
-
-O backup do arquivo de configuração (`/cf/conf/config.xml`) do firewall é salvo na estrutura de diretórios criada na execução do script.
+After download configuration file (`/cf/conf/config.xml`), the backup file is stored on following path.
 
 > ./fw_backup/bkp_$date-$hours/$firewall/config.xml
 
-Apenas execute.
+Just run to perform backup of firewall list.
 
-> ./pf_bkp.sh lista_pfsense.txt
+> ./pf_bkp.sh firewalls.txt
 ***
